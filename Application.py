@@ -15,6 +15,8 @@ import streamlit as st
 #
 # from streamlit_option_menu import option_menu
 
+from footerul import footer
+
 st.set_page_config(
         page_title="ML Methods Analysis",
         page_icon="🌁",
@@ -29,4 +31,5 @@ def mainul():
     st.markdown('<div style="text-align: justify;"> Hello! Bienvenue to the application. '
                 '<br> 👈 Select a page from the sidebar to see some examples. </div>', unsafe_allow_html=True)
 
+footer()
 mainul()

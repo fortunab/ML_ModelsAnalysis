@@ -63,9 +63,9 @@ def layout(*args):
 def footer():
     myargs = [
         "Signal, Image Processing and Machine Learning Team, SIMT, \
-        West University of Timișoara, Bioinformatics \
-        This app was developed by Diogen Babuc with \
-        the support and supervision of Dr. Darian Onchiș"
+        \n West University of Timișoara, Bioinformatics \
+        \n This app was developed by Diogen Babuc with \
+        \n the support and supervision of Dr. Darian Onchiș"
     ]
     layout(*myargs)
 
