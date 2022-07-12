@@ -62,7 +62,7 @@ def layout(*args):
 
 def footer():
     myargs = [
-        "Signal, Image Processing, and Machine Learning Team, SIMT "
+        "Signal, Image Processing, and Machine Learning Team: SIMT " 
     ]
     layout(*myargs)
 
