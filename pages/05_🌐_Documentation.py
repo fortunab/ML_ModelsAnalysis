@@ -46,5 +46,4 @@ def docums():
         fi folosit pentru a construi diverse experimente.  </div>', unsafe_allow_html=True)
 
 
-footer()
 docums()

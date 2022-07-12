@@ -132,7 +132,6 @@ def dataset_proc():
     # if nume_ds == "OfficialSeptember2020":
     #     st.write(nume_ds + "DateSeptembrie2020_augmentat.csv")
 
-    footer()
     optiune1 = st.sidebar.checkbox("Initial dataset")
     optiune2 = st.sidebar.checkbox("Dataset with valid values")
 

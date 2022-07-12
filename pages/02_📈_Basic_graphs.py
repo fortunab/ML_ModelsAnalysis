@@ -63,8 +63,6 @@ def afisarea_grafice_general(col):
 def basic_graf():
 
     st.header("Display basic graphs")
-
-    footer()
     afisarea_grafice_concret()
     X_, _ = modelarea()
     l = ["-----"]

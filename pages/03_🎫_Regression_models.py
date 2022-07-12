@@ -338,7 +338,6 @@ if te:
 
     st.image(imaginea)
 
-footer()
 
 f_optiu = st.sidebar.checkbox("Relation Matrices")
 if f_optiu:
