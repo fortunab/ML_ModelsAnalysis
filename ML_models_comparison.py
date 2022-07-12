@@ -570,7 +570,6 @@ def ML_models():
         st.image(imgf1)
 
 
-footer()
 ML_models()
 
 
