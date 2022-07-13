@@ -16,7 +16,7 @@ def docums():
 
     st.subheader("Documentație")
     st.markdown('<div style="text-align: justify;"> <br><br> În această lucrare se discută despre modul de implementare și modelele de învățare automată (ML) folosite în procesul de predicție \
-         a datelor despre virusul COVID-19 care rezistă și după mai mult de doi ani. Scopul este de a se observa care model este \
+         a datelor despre COVID-19 care rezistă și după mai mult de doi ani. Scopul este de a se observa care model este \
          cel mai bun, cu cea mai mare acuratețe, sensibilitate, specificitate, precizie și scorul F1 și cel mai bun timp de execuție. \
          Se utilizează librăriile Scikit-learn și PySpark pentru implementare, pentru procesul de analiză statistică a datelor – indicând \
          coeficientul de determinare și coeficientul <i>Pearson</i>, la fiecare model și eroarea medie pătratică și cea absolută. \
