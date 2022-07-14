@@ -41,7 +41,7 @@ def docums():
         eroarea medie pătratică (MSE), acuratețea, sensibilitatea, specificitatea și altele. \
         <br>&emsp; O problemă de etică din cadrul acestui set de date este faptul că persoanele testate nu și-au exprimat învoiala ca datele lor să \
         fie introduse în sistem. O altă problemă de etică, care totuși ține de epidemiologia genetică, este utilizarea diferitelor aparate \
-        tehnologice în astfel de studii. O altă problematică de etică se leagă cumva de primul exemplu indicat; pacienții nu-și oferă \
+        tehnologice în astfel de studii. O altă problematică de etică se leagă într-un fel de primul exemplu indicat; pacienții nu-și oferă \
         consințământul, nu le sunt indicate beneficiile și dezavantajele de participare la construirea unui set de date, care ulterior va \
         fi folosit pentru a construi diverse experimente.  </div>', unsafe_allow_html=True)
 
