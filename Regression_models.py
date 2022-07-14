@@ -375,7 +375,7 @@ if feedback:
                              ["Poor", "Not Good", "As Expected", "Easy for follow", "Excellent"], value="As Expected")
             st.form_submit_button("Submit")
             if val != "-----":
-                st.text("Thanks for your implication and for the feedback ")
+                st.text("Thank you for your implication and for the feedback ")
 
 # with open('config.yaml') as file:
 #     config = yaml.load(file, Loader=yaml.SafeLoader)
