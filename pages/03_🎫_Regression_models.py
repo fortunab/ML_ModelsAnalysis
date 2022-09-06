@@ -175,7 +175,6 @@ def output_model():
     uk = numpy.array([68592949.0, 522526476.0, 22142505.0, 156.0, 348910.0]).reshape((1, -1))
     y_uk = predictie_concret(uk)
     st.write('Prediction of Total Cases in United Kingdom: ', round(y_uk[-1]))
-    st.subheader('General prediction of Total Cases ', predictie_general())
 
 
     st.subheader("Coefficients for the Models")
