@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'aplicatiesistemeflaskclasificareregresie'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2B6F955F96164A3988C0BDC98ED79BE1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_24A798139FB3433483CE6FC278AA7D28 }}
