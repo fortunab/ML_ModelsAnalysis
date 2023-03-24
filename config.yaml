@@ -1,0 +1,25 @@
+cookie:
+  expiry_days: 50
+  key: some_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    dionounew:
+      email: newprofile@gmail.en
+      name: Dio Babuc
+      password: $2b$12$iK7TObcz7J2XvbuBa953ZOrmKNi5bN.ULUrZW8bSYsOfBUXy6c.je
+    dioprofil:
+      email: unprofil@gmail.en
+      name: Dio Babuc
+      password: $2b$12$nAa1gTm5I1ebchY7ycmjU.cr2mjMnyx9MEZQUoSecXRtwsukTg7Wy
+    jsmith:
+      email: jsmith@gmail.com
+      name: John Smith
+      password: '123'
+    rbriggs:
+      email: rbriggs@gmail.com
+      name: Rebecca Briggs
+      password: '456'
+preauthorized:
+  emails:
+  - melsby@gmail.com

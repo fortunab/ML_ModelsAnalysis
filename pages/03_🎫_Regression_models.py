@@ -24,7 +24,7 @@ st.set_page_config(
         page_icon="🎫"
     )
 
-st.header("Regression Models")
+st.markdown("<h1> Regression Model considering the augmented <i>Last 110 countries from Worldometer</i> dataset </h1>", unsafe_allow_html=True)
 
 
 def modelul():

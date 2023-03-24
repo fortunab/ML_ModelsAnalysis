@@ -30,7 +30,6 @@ def instruire_testare_KNN(X, y):
     # K=10
     k_range = list(range(1, 6))
     k_rezultate = []
-    # for k in k_range:
     knn = KNeighborsClassifier(n_neighbors=10)
     print(len(X), len(y))
     rezultat = cross_val_score(knn, X_train, y_train, cv=5, scoring='accuracy')
@@ -442,84 +441,21 @@ def instruire_testare_XGBoost_sens_spec(X, y):
 
     return sens, spec, prec, f1scorul
 
-# knnsens, knnspec, knnprec, knnscorulf1 = instruire_testare_KNN_sens_spec(X_, y_)
-# svmsens, svmspec, svmprec, svmscorulf1 = instruire_testare_polySVM_sens_spec(X_, y_)
-# dcsens, dcspec, dcprec, dcscorulf1 = instruire_testare_DecisionTree_sens_spec(X_, y_)
-# cartsens, cartspec, cartprec, cartscorulf1 = instruire_testare_CART_sens_spec(X_, y_)
-# xgsens, xgspec, xgprec, xgbscorulf1 = instruire_testare_XGBoost_sens_spec(X_, y_)
-
-def sensibilitatea():
-    data = {"KNN":knnsens, "SVM":svmsens, "Decision Tree Model":dcsens, "CART":cartsens, "XGBoost":xgsens}
-    modele = list(data.keys())
-    values = list(data.values())
-    fig = plt.figure(figsize=(10, 5))
-
-    # creating the bar chart plot
-    plt.bar(modele, values, color='blue',
-            width=0.4)
-
-    plt.xlabel("Models")
-    plt.ylabel("Sensitivity")
-    plt.title("Individual Sensitivity of the Models")
-
-    st.pyplot(fig=plt)
-    # st.write(fig)
-
-def specificitatea():
-    data = {"KNN":knnspec, "SVM":svmspec, "Decision Tree Model":dcspec, "CART":cartspec, "XGBoost":xgspec}
-    modele = list(data.keys())
-    values = list(data.values())
-    fig = plt.figure(figsize=(10, 5))
-
-    # creating the bar plot
-    plt.bar(modele, values, color='yellow',
-            width=0.4)
-
-    plt.xlabel("Models")
-    plt.ylabel("Specificity")
-    plt.title("Individual Specificity of the Models")
-
-    st.pyplot(fig=plt)
-    # st.write(fig)
-
-def precizia():
-    data = {"KNN":knnprec, "SVM":svmprec, "Decision Tree Model":dcprec, "CART":cartprec, "XGBoost":xgprec}
-    modele = list(data.keys())
-    values = list(data.values())
-    fig = plt.figure(figsize=(10, 5))
-
-    # creating the bar plot
-    plt.bar(modele, values, color='green',
-            width=0.4)
-
-    plt.xlabel("Models")
-    plt.ylabel("Precision")
-    plt.title("Individual Precision of the Models")
-
-    st.pyplot(fig=plt)
-    # st.write(fig)
-
-def scorulF1():
-    data = {"KNN":knnscorulf1, "SVM":svmscorulf1, "Decision Tree Model":dcscorulf1, "CART":cartscorulf1, "XGBoost":xgbscorulf1}
-    modele = list(data.keys())
-    values = list(data.values())
-    fig = plt.figure(figsize=(10, 5))
-
-    # creating the bar chart
-    plt.bar(modele, values, color='red',
-            width=0.4)
-
-    plt.xlabel("Models")
-    plt.ylabel("F1 Score")
-    plt.title("Individual F1 Score of the Models")
-
-    st.pyplot(fig=plt)
-    # st.write(fig)
-
 
 def ML_models():
+    st.header("Machine Learning Models Comparison: Evaluation metrics ")
+
+    st.subheader("Oceania countries dataset ")
+    imagine = "img/streamlit_img/metrici2.png"
+    st.image(imagine)
+    st.subheader("Last 110 countries from Worldometer dataset ")
+    imagine = "img/streamlit_img/metrici1.png"
+    st.image(imagine)
+
+    st.markdown("<hr> <br> ", unsafe_allow_html=True)
+
     fig, ax = plt.subplots()
-    st.header("Machine Learning Models Comparison")
+    st.subheader("Machine Learning Models Comparison considering 5 data portions and other classes ")
 
     nume_ds = st.selectbox("Select dataset", ("-----", "OfficialSeptember2020", "Oceania"))
 
@@ -538,7 +474,8 @@ def ML_models():
         st.image(imagine)
 
 
-    st.subheader("Metrics for evaluating models performance for the first dataset ")
+    st.subheader("Metrics for evaluating models performance for the augmented Last 110 countries from "
+                 "Worldometer dataset. \n Class A: Total Cases >40000; Class B: Total Cases <=40000 ")
     # st.write("KNN: ", instruire_testare_KNN_sens_spec(X_, y_))
     # st.write("SVM: ", instruire_testare_polySVM_sens_spec(X_, y_))
     # st.write("Decision Tree Model: ", instruire_testare_DecisionTree_sens_spec(X_, y_))

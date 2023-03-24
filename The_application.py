@@ -24,8 +24,9 @@ st.set_page_config(
 
 
 def mainul():
-    st.title("Prediction of COVID-19 using Machine Learning Models ")
-    st.header("Model Evaluation Metrics and Statistical Indicators Calculation ")
+    st.title("Machine Learning Predictive Models on COVID-19 Datasets to "
+             "Estimate the Risk of Infection in Certain Regions")
+    st.header("Models Evaluation Metrics and Statistical Indicators Calculation ")
 
 
     st.markdown('<div style="text-align: justify;"> Hello! Bienvenue to the application. '

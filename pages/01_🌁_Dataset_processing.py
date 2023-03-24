@@ -126,7 +126,7 @@ def afisarea_prelucrarea():
 
 def dataset_proc():
 
-    st.header("Data Processing ")
+    st.markdown("<h2> Data Processing for the augmented <i> Last 110 countries from Worldometer until september 2020 </i> dataset </h2> ", unsafe_allow_html=True)
 
     # nume_ds = st.selectbox("Select dataset", ("-----", "OfficialSeptember2020"))
     # if nume_ds == "OfficialSeptember2020":
@@ -160,7 +160,7 @@ def dataset_proc():
     optiune4 = st.checkbox("Response variable")
     if optiune4:
         st.write(y)
-        st.write("Total number of countries recognised as independent from the list: ", len(numpy.unique(y)))
+        st.write("Total number of independent countries from the list: ", len(numpy.unique(y)))
 
     optiune5 = st.sidebar.checkbox("Different results")
 
