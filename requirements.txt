@@ -5,10 +5,8 @@ PyYaml
 matplotlib==3.5.2
 pyparsing==2.4.7
 htbuilder
-Sckit-learn
+scikit-learn
+sklearn
 pandas
 xgboost==1.6.1
 seaborn
-
-
-
