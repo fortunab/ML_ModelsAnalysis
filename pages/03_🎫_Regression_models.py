@@ -348,7 +348,7 @@ st.header("Manual input for concrete data, Total Cases prediction ")
 def predictie_users():
     with st.form("predictie"):
             teritoriul = st.text_input("Introduce Country/Others name: ", "Default")
-            a = st.number_input("Introduce population: ", 1, 100000000000, 40000, 1)
+            a = st.number_input("Introduce Population: ", 1, 100000000000, 40000, 1)
             b = st.number_input("Introduce Total Tests: ", 1, 100000000000, 500000, 1)
             c = st.number_input("Introduce Total Recovered: ", 1, 1000000000, 5555, 1)
             d = st.number_input("Introduce Serious or Critical: ", 1, 100000000, 55, 1)
