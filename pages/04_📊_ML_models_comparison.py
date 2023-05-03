@@ -446,10 +446,10 @@ def ML_models():
     st.header("Machine Learning Models Comparison: Evaluation metrics ")
 
     st.subheader("Oceania countries dataset ")
-    imagine = "img/streamlit_img/metrici2.png"
+    imagine = "img/streamlit_img/evalm_ds1.png"
     st.image(imagine)
-    st.subheader("Last 110 countries from Worldometer dataset ")
-    imagine = "img/streamlit_img/metrici1.png"
+    st.subheader("Last 100 countries from Worldometer dataset ")
+    imagine = "img/streamlit_img/eval_metrics.png"
     st.image(imagine)
 
     st.markdown("<hr> <br> ", unsafe_allow_html=True)
@@ -474,7 +474,7 @@ def ML_models():
         st.image(imagine)
 
 
-    st.subheader("Metrics for evaluating models performance for the augmented Last 110 countries from "
+    st.subheader("Metrics for evaluating models performance for the augmented Last 100 countries from "
                  "Worldometer dataset. \n Class A: Total Cases >40000; Class B: Total Cases <=40000 ")
     # st.write("KNN: ", instruire_testare_KNN_sens_spec(X_, y_))
     # st.write("SVM: ", instruire_testare_polySVM_sens_spec(X_, y_))

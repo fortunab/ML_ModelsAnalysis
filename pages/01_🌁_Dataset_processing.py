@@ -40,29 +40,29 @@ def tara_totalcases():
 def medie_dispersie_devstd_totalrec():
     cf = medie_modif()
     # medie coloana Total Recovered
-    travg = cf["Total Recovered"].mean()
+    travg = str(round(cf["Total Recovered"].mean(), 2))
     # dispersie coloana Total Recovered
-    trv = cf["Total Recovered"].var()
+    trv = str(round(cf["Total Recovered"].var(), 2))
     # deviatie standard coloana Total Recovered
-    trsd = cf["Total Recovered"].std()
+    trsd = str(round(cf["Total Recovered"].std(), 2))
     # mediana coloana Total Recovered
-    trmed = cf["Total Recovered"].median()
+    trmed = str(round(cf["Total Recovered"].median(), 2))
     # cuartila coloana Total Recovered
-    trq = cf["Total Recovered"].quantile([0.25, 0.5, 0.75])
+    trq = str(round(cf["Total Recovered"].quantile([0.25, 0.5, 0.75])))
     return travg, trv, trsd, trmed, trq
 
 def sumar_toate(col):
     cf = medie_modif()
     # medie coloana
-    avg = cf[col].mean()
+    avg = round(cf[col].mean(), 2)
     # dispersie coloana
-    v = cf[col].var()
+    v = round(cf[col].var(), 2)
     # deviatie standard coloana
-    sd = cf[col].std()
+    sd = round(cf[col].std(), 2)
     # mediana coloana
-    med = cf[col].median()
+    med = round(cf[col].median(), 2)
     # cuartile coloana
-    q = cf[col].quantile([0.25, 0.5, 0.75])
+    q = round(cf[col].quantile([0.25, 0.5, 0.75]), 2)
     return avg, v, sd, med, q
 
 # Modelare date: X = predictor, var independenta, y = raspuns, var dependenta
@@ -126,7 +126,7 @@ def afisarea_prelucrarea():
 
 def dataset_proc():
 
-    st.markdown("<h2> Data Processing for the augmented <i> Last 110 countries from Worldometer until september 2020 </i> dataset </h2> ", unsafe_allow_html=True)
+    st.markdown("<h2> Data Processing for the augmented <i> Last 100 countries from Worldometer until september 2020 </i> dataset (DS2) </h2> ", unsafe_allow_html=True)
 
     # nume_ds = st.selectbox("Select dataset", ("-----", "OfficialSeptember2020"))
     # if nume_ds == "OfficialSeptember2020":
@@ -184,7 +184,8 @@ def dataset_proc():
     for i in X_.columns:
         lsvariabile.append(i)
     t1 = tuple(lsvariabile)
-    sumar_variabile = st.selectbox("Summary of the variables", t1)
+    st.subheader("Summary of the variables")
+    sumar_variabile = st.selectbox("Select", t1)
 
     for variabila in X_.columns:
         if sumar_variabile == variabila:

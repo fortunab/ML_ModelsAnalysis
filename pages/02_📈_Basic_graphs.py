@@ -22,18 +22,21 @@ def afisarea_grafice_concret():
     fig, ax = plt.subplots()
     boxplot = X_.boxplot(column=['Active Cases', 'Total Recovered'], ax=ax)
     st.write(fig)
+    plt.savefig("boxplots_active_recovered.pdf", format="pdf", bbox_inches="tight")
 
     fig, ax = plt.subplots()
     X_, y_ = modelarea()
     hist = X_.hist(column=['Total Tests', 'Total Recovered', 'Active Cases', 'Population'], ax=ax)
     # plt.show()
     st.write(fig)
+    plt.savefig("histogram_4columns.pdf", format="pdf", bbox_inches="tight")
 
     fig, ax = plt.subplots()
     X_, y_ = modelarea()
     X_["Total Recovered"].plot.density(color="red", ax=ax)
     plt.title('Density curve for the variable Total Recovered')
     st.write(fig)
+    plt.savefig("density_curve.pdf", format="pdf", bbox_inches="tight")
 
 def afisarea_grafice_general(col):
     X_, y_ = modelarea()
@@ -62,13 +65,14 @@ def afisarea_grafice_general(col):
 
 def basic_graf():
 
-    st.header("Display basic graphs")
+    st.header("Display basic graphs for DS2")
     afisarea_grafice_concret()
     X_, _ = modelarea()
     l = ["-----"]
     for i in X_.columns:
         l.append(i)
     t = tuple(l)
+    st.subheader("Column selection in displaying Boxplots, Histograms, Density Curves")
     coloana = st.selectbox("Select the column ", t)
 
 

@@ -24,7 +24,7 @@ st.set_page_config(
         page_icon="🎫"
     )
 
-st.markdown("<h1> Regression Model considering the augmented <i>Last 110 countries from Worldometer</i> dataset </h1>", unsafe_allow_html=True)
+st.markdown("<h1> Regression Model considering the augmented <i>Last 100 countries from Worldometer</i> dataset (DS2) </h1>", unsafe_allow_html=True)
 
 
 def modelul():
@@ -177,78 +177,6 @@ def output_model():
     st.write('Prediction of Total Cases in United Kingdom: ', round(y_uk[-1]))
 
 
-    st.subheader("Coefficients for the Models")
-
-    with st.form("Coefficients"):
-        select_model_coeffs = st.select_slider("Select the model for visualizing the coefficients",
-                                 ["KNN", "SVM", "Decision Tree Model", "CART", "XGBoost"], value="SVM")
-        st.form_submit_button("Submit")
-        if select_model_coeffs == "KNN":
-            knn_r_sq, knn_r = model_KNN_coeffs()
-            st.write("K-Nearest Neighbor Algorithm")
-            st.write("Determination coefficient: ", knn_r_sq)
-            st.write("Relation coefficient: ", knn_r)
-        elif select_model_coeffs == "SVM":
-            svm_r_sq, svm_r = model_SVM_coeffs()
-            st.write("Support Vector Machine Algorithm")
-            st.write("Determination coefficient: ", svm_r_sq)
-            st.write("Relation coefficient: ", svm_r)
-        elif select_model_coeffs == "Decision Tree Model":
-            dt_r_sq, dt_r = model_DT_coeffs()
-            st.write("Decision Tree Algorithm")
-            st.write("Determination coefficient: ", dt_r_sq)
-            st.write("Relation coefficient: ", dt_r)
-        elif select_model_coeffs == "CART":
-            svm_r_sq, svm_r = model_CART_coeffs()
-            st.write("Classification and Regression Trees")
-            st.write("Determination coefficient: ", svm_r_sq)
-            st.write("Relation coefficient: ", svm_r)
-        elif select_model_coeffs == "XGBoost":
-            dt_r_sq, dt_r = model_CART_coeffs()
-            st.write("Extreme Gradient Boost")
-            st.write("Determination coefficient: ", dt_r_sq+0.2)
-            st.write("Relation coefficient: ", sqrt(dt_r_sq+0.2))
-
-    lr_msq_mabs_e = model_LR_msq_mabs_e()
-    st.write(lr_msq_mabs_e)
-
-
-    st.subheader("Mean Errors for the Models")
-
-    with st.form("MSE, MAbsE"):
-            select_model_coeffs = st.select_slider("Select the model for visualizing the mean errors",
-                                 ["Linear Regression", "Decision Tree Model", "KNN", "SVM", "CART", "XGBoost"], value="Linear Regression")
-            st.form_submit_button("Submit")
-            if select_model_coeffs == "Linear Regression":
-                lr_msq_e, lr_mabs_e = model_LR_msq_mabs_e()
-                st.write("Mean Squared Error Linear Regression: ", round(lr_msq_e, 2))
-                st.write("Mean Absolute Error Linear Regression: ", round(lr_mabs_e, 2))
-            elif select_model_coeffs == "KNN":
-                knn_msq_e, knn_mabs_e = model_KNN_msq_mabs_e()
-                st.write("K-Nearest Neighbor Algorithm")
-                st.write("Mean Squared Error: ", round(knn_msq_e, 2))
-                st.write("Mean Absolute Error: ", round(knn_mabs_e, 2))
-            elif select_model_coeffs == "SVM":
-                svm_msq_e, svm_mabs_e = model_SVM_msq_mabs_e()
-                st.write("Support Vector Machine Algorithm")
-                st.write("Mean Squared Error: ", round(svm_msq_e, 2))
-                st.write("Mean Absolute Error: ", round(svm_mabs_e, 2))
-            elif select_model_coeffs == "Decision Tree Model":
-                st.write("Decision Tree Algorithm")
-                dt_msq_e, dt_mabs_e = model_DT_msq_mabs_e()
-                st.write("Mean Squared Error: ", round(dt_msq_e, 2))
-                st.write("Mean Absolute Error: ", round(dt_mabs_e, 2))
-            elif select_model_coeffs == "CART":
-                cart_msq_e, cart_mabs_e = model_CART_msq_mabs_e()
-                st.write("Classification and Regression Algorithm")
-                st.write("Mean Squared Error: ", round(cart_msq_e, 2))
-                st.write("Mean Absolute Error: ", round(cart_mabs_e, 2))
-            elif select_model_coeffs == "XGBoost":
-                st.write("Extreme Gradient Boost")
-                xgb_msq_e, xgb_mabs_e = model_CART_msq_mabs_e()
-                st.write("Mean Squared Error: ", round(xgb_msq_e-100, 2))
-                st.write("Mean Absolute Error: ", round(xgb_mabs_e-1, 2))
-
 
 def timpii_executie():
     start_time = time.time()
@@ -311,24 +239,24 @@ def grafic_timpii_executie():
     return linr, knn, polysvm, dc, cart, xgb
 
 
-# a, b, c, d, e, f = grafic_timpii_executie()
-#
-# def grafic_te():
-#     data = {"Linear Regression":a, "KNN":b, "SVM":c, "Decision Tree Model":d, "CART":e, "XGBoost":f}
-#     modele = list(data.keys())
-#     values = list(data.values())
-#     fig = plt.figure(figsize=(10, 5))
-#
-#     # creating the bar plot
-#     plt.bar(modele, values, color='blue', width=0.4)
-#
-#     plt.xlabel("Models")
-#     plt.ylabel("Seconds")
-#     plt.title("Execution time ")
-#
-#     st.pyplot(fig=plt)
+a, b, c, d, e, f = grafic_timpii_executie()
 
+def grafic_te():
+    data = {"Linear Regression":a, "KNN":b, "SVM":c, "Decision Tree Model":d, "CART":e, "XGBoost":f}
+    modele = list(data.keys())
+    values = list(data.values())
+    fig = plt.figure(figsize=(10, 5))
 
+    # creating the bar plot
+    plt.bar(modele, values, color='blue', width=0.4)
+
+    plt.xlabel("Models")
+    plt.ylabel("Seconds")
+    plt.title("Execution time ")
+
+    plt.savefig("timp_executieDS2.pdf", format="pdf", bbox_inches="tight")
+    st.pyplot(fig=plt)
+# grafic_te()
 te = st.checkbox("Execution time ")
 
 if te:
@@ -338,7 +266,7 @@ if te:
     st.image(imaginea)
 
 
-f_optiu = st.sidebar.checkbox("Relation Matrices")
+f_optiu = st.sidebar.checkbox("Relation Matrices ")
 if f_optiu:
     matricea_heatmap()
     matricea_heatmap_var_ind()
@@ -348,7 +276,7 @@ st.header("Manual input for concrete data, Total Cases prediction ")
 def predictie_users():
     with st.form("predictie"):
             teritoriul = st.text_input("Introduce Country/Others name: ", "Default")
-            a = st.number_input("Introduce Population: ", 1, 100000000000, 40000, 1)
+            a = st.number_input("Introduce population: ", 1, 100000000000, 40000, 1)
             b = st.number_input("Introduce Total Tests: ", 1, 100000000000, 500000, 1)
             c = st.number_input("Introduce Total Recovered: ", 1, 1000000000, 5555, 1)
             d = st.number_input("Introduce Serious or Critical: ", 1, 100000000, 55, 1)
