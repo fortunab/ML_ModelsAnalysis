@@ -98,7 +98,7 @@ elif coloana == "SVM2":
     imagine = "img/streamlit_img/svm_mse1.png"
     st.image(imagine)
 elif coloana == "Decision Tree2":
-    imagine = "img/alte/dt_mse_ds2.png"
+    imagine = ""
     st.image(imagine)
 elif coloana == "CART2":
     imagine = "img/alte/cart_mse_ds2.png"
@@ -116,13 +116,13 @@ elif coloana == "SVM2":
     imagine = "img/streamlit_img/svm_mae1.png"
     st.image(imagine)
 elif coloana == "Decision Tree2":
-    imagine = "img/alte/dt_mse_ds2.png"
+    imagine = ""
     st.image(imagine)
 elif coloana == "CART2":
-    imagine = "img/alte/cart_mse_ds2.png"
+    imagine = "img/alte/cart_mae_ds2.png"
     st.image(imagine)
 elif coloana == "XGBoost2":
-    imagine = "img/alte/xgboost_mse_ds2.png"
+    imagine = "img/alte/xgboost_mae_ds2.png"
     st.image(imagine)
 
 st.markdown('<br> <h5 style="text-align: center;"> Coefficient of determination <br> </h5>', unsafe_allow_html=True)
@@ -134,7 +134,7 @@ elif coloana == "SVM2":
     imagine = "img/alte/svm_coefdet_ds1.png"
     st.image(imagine)
 elif coloana == "Decision Tree2":
-    imagine = "img/alte/dt_coefdet_ds2.png"
+    imagine = ""
     st.image(imagine)
 elif coloana == "CART2":
     imagine = "img/alte/cart_coefdet_ds2.png"
@@ -152,7 +152,7 @@ elif coloana == "SVM":
     imagine = "img/alte/svm_coefcp_ds1.png"
     st.image(imagine)
 elif coloana == "Decision Tree2":
-    imagine = "img/alte/dt_coefcp_ds2.png"
+    imagine = ""
     st.image(imagine)
 elif coloana == "CART2":
     imagine = "img/alte/cart_coefcp_ds2.png"
