@@ -23,7 +23,7 @@ def medie_modif():
     # se afiseaza media tuturor coloanelor numerice
     # valorile NaN se inlocuiesc cu media valorilor
     # de pe coloana respectiva, pentru fiecare coloana
-    ult = cf.fillna(cf.mean())
+    ult = cf.fillna(cf.mean(numeric_only=True))
     return ult
 
 def medie_total_teste():
