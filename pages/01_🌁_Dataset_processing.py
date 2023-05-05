@@ -22,7 +22,7 @@ def medie_modif():
     # se afiseaza media tuturor coloanelor numerice
     # valorile NaN se inlocuiesc cu media valorilor
     # de pe coloana respectiva, pentru fiecare coloana
-    ult = [cf for cf in cf['Country'] if str(cf) != '']
+    ult = cf.fillna(cf.mean(numeric_only=True))
     return ult
 
 def medie_total_teste():
@@ -70,7 +70,7 @@ def sumar_toate(col):
 # Pregatire date pentru modelul liniar
 def modelarea():
     cf = medie_modif()
-    X = cf[["Population", "Total Tests", "Total Recovered", "Serious or Critical", "Active Cases"]]
+    X = cf.drop(columns=["Country", "Total Cases", "Total Deaths"])
     y = cf["Total Cases"]
     return X, y
 
