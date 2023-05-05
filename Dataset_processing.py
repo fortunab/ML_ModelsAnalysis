@@ -20,11 +20,7 @@ from input_pandas import citire_file
 
 def medie_modif():
     cf = citire_file()
-    # se afiseaza media tuturor coloanelor numerice
-    # valorile NaN se inlocuiesc cu media valorilor
-    # de pe coloana respectiva, pentru fiecare coloana
-    new = cf.drop(cf['Country'])
-    ult = new.fillna(new.mean())
+    ult = [cf for cf in cf['Country'] if str(cf) != '']
     return ult
 
 def medie_total_teste():
