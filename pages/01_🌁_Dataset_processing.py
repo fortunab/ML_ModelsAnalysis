@@ -70,7 +70,7 @@ def sumar_toate(col):
 # Pregatire date pentru modelul liniar
 def modelarea():
     cf = medie_modif()
-    X = cf.drop(columns=["Country", "Total Cases", "Total Deaths"])
+    X = cf.drop([["Country", "Total Cases", "Total Deaths"]])
     y = cf["Total Cases"]
     return X, y
 
