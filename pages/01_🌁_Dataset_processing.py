@@ -22,9 +22,7 @@ def medie_modif():
     # se afiseaza media tuturor coloanelor numerice
     # valorile NaN se inlocuiesc cu media valorilor
     # de pe coloana respectiva, pentru fiecare coloana
-    cf.isnull().sum()
-    ult = cf.fillna(cf.mean())
-    cf.isnull().sum()
+    ult = [cf for cf in cf['Country'] if str(cf) != '']
     return ult
 
 def medie_total_teste():
