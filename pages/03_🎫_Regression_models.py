@@ -62,10 +62,10 @@ def model_DT_msq_mabs_e():
     model = tree.DecisionTreeClassifier(criterion="entropy", max_depth=5)
     X_, y_ = modelarea()
     X_train, X_test, y_train, y_test = train_test_split(X_, y_, test_size=0.3, random_state=False)
-    model = model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    mse = mean_squared_error(y_pred, y_test)
-    mabs = mean_absolute_error(y_pred, y_test)
+    model = model.fit(X_train.values, y_train.values)
+    y_pred = model.predict(X_test.values)
+    mse = mean_squared_error(y_pred, y_test.values)
+    mabs = mean_absolute_error(y_pred, y_test.values)
     return mse, mabs
 
 def model_SVM_coeffs():
@@ -80,10 +80,10 @@ def model_SVM_msq_mabs_e():
     model = SVC(C=0.5, kernel="poly", degree=5, decision_function_shape="ovo")
     X_, y_ = modelarea()
     X_train, X_test, y_train, y_test = train_test_split(X_, y_, test_size=0.3, random_state=False)
-    model = model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    mse = mean_squared_error(y_pred, y_test)
-    mabs = mean_absolute_error(y_pred, y_test)
+    model = model.fit(X_train.values, y_train.values)
+    y_pred = model.predict(X_test.values)
+    mse = mean_squared_error(y_pred, y_test.values)
+    mabs = mean_absolute_error(y_pred, y_test.values)
     return mse, mabs
 
 def model_KNN_coeffs():
@@ -98,10 +98,10 @@ def model_KNN_msq_mabs_e():
     model = KNeighborsClassifier(n_neighbors=10)
     X_, y_ = modelarea()
     X_train, X_test, y_train, y_test = train_test_split(X_, y_, test_size=0.3, random_state=False)
-    model = model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    mse = mean_squared_error(y_pred, y_test)
-    mabs = mean_absolute_error(y_pred, y_test)
+    model = model.fit(X_train.values, y_train.values)
+    y_pred = model.predict(X_test.values)
+    mse = mean_squared_error(y_pred, y_test.values)
+    mabs = mean_absolute_error(y_pred, y_test.values)
     return mse, mabs
 
 def model_CART_coeffs():
@@ -116,21 +116,21 @@ def model_CART_msq_mabs_e():
     model = tree.DecisionTreeClassifier(criterion="gini", max_depth=25)
     X_, y_ = modelarea()
     X_train, X_test, y_train, y_test = train_test_split(X_, y_, test_size=0.3, random_state=False)
-    model = model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    mse = mean_squared_error(y_pred, y_test)
-    mabs = mean_absolute_error(y_pred, y_test)
+    model = model.fit(X_train.values, y_train.values)
+    y_pred = model.predict(X_test.values)
+    mse = mean_squared_error(y_pred, y_test.values)
+    mabs = mean_absolute_error(y_pred, y_test.values)
     return mse, mabs
 
 def model_XGBoost_coeffs():
-    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=False)
+    # X_train.values, X_test.values, y_train.values, y_test.values = train_test_split(X, y, test_size=0.3, random_state=False)
 
     from sklearn.preprocessing import LabelEncoder
     le = LabelEncoder()
-    # y_train = le.fit_transform(y_train)
+    # y_train.values = le.fit_transform(y_train.values)
 
     # xboost = XGBClassifier(subsample=0.15, max_depth=2)
-    # rezultat = cross_val_score(xboost, X_train, y_train, cv=5, scoring='accuracy')
+    # rezultat = cross_val_score(xboost, X_train.values, y_train.values, cv=5, scoring='accuracy')
     xgb = XGBClassifier(subsample=0.15, max_depth=2)
     X_, y_ = modelarea()
     y_ = le.fit_transform(y_)
@@ -146,12 +146,12 @@ def model_XGBoost_msq_mabs_e():
 
     from sklearn.preprocessing import LabelEncoder
     le = LabelEncoder()
-    y_train = le.fit_transform(y_train)
+    y_train.values = le.fit_transform(y_train.values)
 
-    model = model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    mse = mean_squared_error(y_pred, y_test)
-    mabs = mean_absolute_error(y_pred, y_test)
+    model = model.fit(X_train.values, y_train.values)
+    y_pred = model.predict(X_test.values)
+    mse = mean_squared_error(y_pred, y_test.values)
+    mabs = mean_absolute_error(y_pred, y_test.values)
     return mse, mabs
 
 def predictie_concret(real):
