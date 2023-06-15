@@ -1,3 +1,4 @@
+
 import matplotlib.pyplot as plt
 import numpy
 import seaborn as sb
@@ -69,7 +70,7 @@ def sumar_toate(col):
 # Pregatire date pentru modelul liniar
 def modelarea():
     cf = medie_modif()
-    X = cf.drop(columns=["Country", "Total Cases", "Total Deaths"])
+    X = cf.drop(columns=["Country", "Total Cases", "Total Deaths"], axis=1)
     y = cf["Total Cases"]
     return X, y
 
@@ -223,3 +224,101 @@ dataset_proc()
 #     dataset_proc()
 # else:
 #     st.write("If you don't have an account, please register at the [link](https://fortunab-ml-methods-application-kqtq2p.streamlitapp.com/Registration)")
+
+
+import pandas as pd
+import seaborn as sb
+import matplotlib.pyplot as plt
+import math
+from scipy.stats import pearsonr
+import warnings
+warnings.filterwarnings('ignore')
+
+
+st.markdown("<h2> Data Processing for the <i> Oceania Countries </i> Dataset (DS1) </h2> ", unsafe_allow_html=True)
+
+# Citire si afisare date
+df = pd.read_csv('oceania_covid.csv')
+print(df.head(10).to_string(index=False))
+df.head()
+df.info()
+
+# Tratare coloane nil
+df.isnull().sum()
+df = df.fillna(df.mean())
+df.isnull().sum()
+st.write(df.head())
+
+
+# Vector de variabile independente si specificatie variabila dependenta
+X = df.drop(['Country/Other', 'Total Cases'], axis=1)
+y = df['Total Cases']
+
+st.write(X)
+st.write(y)
+
+
+def corelatie():
+    # print("\nVerif corelatia Pearson dintre variabile si Total Cases")
+    st.write("\nCorelatia intre variabilele independente si cea dependenta ")
+    for i in X.columns:
+        corelatie, _ = pearsonr(X[i], y)
+        st.write(i + ': %.2f' % corelatie)
+corelatie()
+
+
+def medie_dispersie_devstd_Population():
+    # medie coloana Population
+    pavg = df["Population"].mean()
+    # dispersie coloana Population
+    pv = df["Population"].var()
+    # deviatie standard coloana Population
+    psd = df["Population"].std()
+    # mediana coloana Population
+    pmed = df["Population"].median()
+    # cuartila coloana Population
+    pq = df["Population"].quantile([0.25, 0.5, 0.75])
+    return pavg, pv, psd, pmed, pq
+st.write(medie_dispersie_devstd_Population())
+
+def sumar_toate(col):
+    # medie coloana
+    avg = df[col].mean()
+    # dispersie coloana
+    v = df[col].var()
+    # deviatie standard coloana
+    sd = df[col].std()
+    # mediana coloana
+    med = df[col].median()
+    # cuartile coloana
+    q = df[col].quantile([0.25, 0.5, 0.75])
+    return avg, v, sd, med, q
+sumar_toate("Active Cases")
+
+def matricea_heatmap_total():
+    st.write("\nMatricea de relatie ")
+    fig, ax = plt.subplots()
+    mcorelatie = df.corr()
+    sb.heatmap(mcorelatie, ax=ax)
+    plt.xticks(rotation=90)
+    plt.yticks(rotation=0)
+    # plt.show()
+    st.write((fig))
+# matricea_heatmap_total()
+
+def matricea_heatmap_var_ind():
+    st.write("Matricea de relatie pentru potentiala variabila independenta ")
+    fig, ax = plt.subplots()
+    mcorelatieX = X.corr()
+    sb.heatmap(mcorelatieX, ax=ax)
+    plt.xticks(rotation=90)
+    plt.yticks(rotation=0)
+    plt.savefig("heatmap_ds1.pdf", format="pdf", bbox_inches="tight")
+    # plt.show()
+    st.write(fig)
+matricea_heatmap_var_ind()
+
+
+X = df[['Total Recovered', 'Active Cases', 'Total Tests', 'Tests/ 1M pop', 'Population']]
+st.write(X)
+
