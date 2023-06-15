@@ -25,7 +25,7 @@ st.set_page_config(
 
 def mainul():
     st.title("Machine Learning Predictive Models on COVID-19 Datasets to "
-             "Estimate the Risk of Infection in Certain Regions")
+             "Estimate the Infection Risk in Certain Geographic Regions")
     st.header("Models Evaluation Metrics and Statistical Indicators Calculation ")
 
 

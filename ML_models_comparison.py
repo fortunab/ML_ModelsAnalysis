@@ -46,7 +46,7 @@ def instruire_testare_KNN(X, y):
 print("metoda")
 X_, y_ = modelarea()
 print(len(X_), len(y_))
-# instruire_testare_KNN(X_, y_)
+instruire_testare_KNN(X_, y_)
 
 
 # Modele de Machine Learning
@@ -66,7 +66,7 @@ def instruire_testare_polySVM(X, y):
     plt.plot(nr_range, nR, color="yellow", label="Polynomial SVM")
 
 print("metoda")
-# instruire_testare_polySVM(X_, y_)
+instruire_testare_polySVM(X_, y_)
 
 
 def instruire_testare_DecisionTree(X, y):
@@ -83,7 +83,7 @@ def instruire_testare_DecisionTree(X, y):
     plt.plot(nr_range, nR, color="blue", label="Decision Tree")
 
 print("metoda")
-# instruire_testare_DecisionTree(X_, y_)
+instruire_testare_DecisionTree(X_, y_)
 
 def instruire_testare_CART(X, y):
     # Instruire si testare
@@ -99,7 +99,7 @@ def instruire_testare_CART(X, y):
     plt.plot(nr_range, nR, color="green", label="CART")
 
 print("metoda")
-# instruire_testare_CART(X_, y_)
+instruire_testare_CART(X_, y_)
 
 
 def instruire_testare_XGBoost(X, y):
@@ -136,7 +136,7 @@ def instruire_testare_XGB(X, y):
     plt.plot(nr_range, nR, color="orange", label="XGBoost")
 
 print("metoda")
-# instruire_testare_XGB(X_, y_)
+instruire_testare_XGB(X_, y_)
 
 
 def plotare():
@@ -157,10 +157,11 @@ def plotare():
     plt.ylim([0, 1])
     plt.legend()
     plt.title("Machine learning models")
+    plt.savefig("metrici_acuratetea_alt2.pdf", format="pdf", bbox_inches="tight")
     st.pyplot(fig=plt)
     # st.write(fig)
 
-# plotare()
+plotare()
 
 
 # def plotarea():
